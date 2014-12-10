@@ -1,0 +1,19 @@
+<h1>Książka gości</h1>
+
+<p id="notice"><%= notice %></p>
+<p>Ostatinie wpisy:</p>
+
+<% @entries.each do |entry| %>
+  <div>
+
+	<% unless entry.avatar_url.blank? %>
+	<%= image_tag(entry.avatar_url, width: 30, height: 30) if entry.avatar_url %>
+	<% end %>
+	<%= entry.name %> napisał(a) <%= entry.created_at %>
+	</div>
+    <div><%= entry.comment %></div>
+
+  </div>
+<% end %>
+
+<%= link_to "nowy wpis", new_entry_path %>
